@@ -4,7 +4,333 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Documentt</title>
+    <title>How we roll</title>
+    <style>
+      * {
+        margin-top: 0;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0;
+      }
+      * {
+        font-family: "Times New Roman", Times, serif;
+      
+      }
+
+      body {
+        background-color: lightgray;
+        margin: 0;
+        flex-direction: column;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        min-height: 50vh;
+        text-align: center;
+        color: rgb(18, 40, 87);
+      }
+      header {
+        height: 100%;
+        width: 100%;
+        background: rgb(65, 78, 107);
+        color: white;
+        padding: 10px;
+        margin-bottom: 0;
+        text-align: center;
+      }
+      header p {
+        font-size: 20px;
+      }
+      nav {
+        max-width: 800px;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        flex-grow: 1;
+        text-align: center;
+        padding: 1em;
+        position: relative;
+      }
+      nav a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        transform: scaleX(0);
+        background:lightgray;
+        transition: 0.7s transform cubic-bezier(0.06, 0.9, 0.28, 1);
+      }
+
+      nav a:hover::after {
+        transform: scaleX(1);
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+        font-size: 20px;
+      }
+      #navn {
+        position: absolute;
+        left: 550px;
+        font-size: 20px;
+        background-color: whitesmoke;
+        border-radius: 5px;
+      }
+
+      #enavn {
+        position: absolute;
+        left: 550px;
+        font-size: 20px;
+        background-color:whitesmoke;
+        border-radius: 5px;
+      }
+
+      .navn {
+        position: absolute;
+        left: 470px;
+        font-size: 20px;
+      }
+      .slider {
+        background:lightgray;
+        width: 100%;
+        appearance: none;
+        align-items: center;
+      }
+
+      .slider:focus {
+        outline: none;
+      }
+
+      .slider::-webkit-slider-thumb {
+        appearance: none;
+        border:rgb(65, 78, 107);
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        background: rgb(113, 114, 116);
+        cursor: pointer;
+        margin-top: -4px;
+      }
+
+      .slider::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 12px;
+        cursor: pointer;
+        box-shadow: rgb(0, 0, 0);
+        background: rgb(65, 78, 107);
+        border-radius: 5px;
+        border: slateblue;
+      }
+
+      .slider:focus::-webkit-slider-runnable-track {
+        background: rgb(60, 140, 202);
+      }
+
+      .container {
+        padding-left: 10%;
+        display: grid;
+        grid-template-columns: 25% 40% 25%;
+        grid-gap: 10px;
+        
+       
+
+      }
+
+      .container > div {
+        font-size: 20px;
+        background-color: lightgray;
+        
+        /* border: 1px solid black; */
+      }
+      .right {
+        text-align: right;
+        padding-top: 22px;
+      }
+      .left {
+        text-align: left;
+        padding-top: 22px;
+        
+      }
+      button{
+        margin-left: 50%;
+        margin-right: 50%;
+        border-width: 3px;
+        border-color: rgb(42, 100, 147);
+        position: absolute;
+        left: -30px;
+        width: 100px;
+        height: 40px;
+        font-size: 20px;
+        font-family: 'Times New Roman', Times, serif;
+        border-radius: 5px;
+        margin-bottom: 100px;
+        cursor: pointer;
+       
+
+       
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <h1>IS-114 How we roll</h1>
+      <p>
+        Gruppe 10B: Gøran Kvitne, Simen Chan Amundsen, Victoria Wold, Bjørnar
+        Hatling Skåden, Emel Yilmaz
+      </p>
+      <div>
+        <nav>
+          <a href="/How_we_roll/report.html">See Report</a>
+          <a href="/How_we_roll/Hwr-10B.pdf">Download Readme</a>
+        </nav>
+      </div>
+    </header>
+    <br />
+    <br />
+
+    <h2>How We Roll</h2>
+    <h3>
+      Drag the slider in the direction that best corresponds to your study
+      habits
+    </h3>
+    <br />
+    <form action="https://bacit.info" method="post">
+      <input type="hidden" name="id" value="" />
+      <p>
+        <label class="navn" for="navn">Name </label>
+        <input type="text" name="navn" id="navn" value="" />
+      </p>
+      <br />
+      <br />
+      <p>
+        <label class="navn" for="enavn">Surname</label>
+        <input type="text" name="enavn" id="enavn" value="" />
+      </p>
+      <br />
+      <br />
+      <br />
+      <div class="container">
+        <!-- early bird -->
+        <div class="right"><p>Early Bird</p></div>
+        <!-- slider -->
+        <div>
+          <br />
+          <input
+            type="range"
+            class="slider"
+            id="early"
+            name="early"
+            value="50"
+          />
+          <br>
+        </div>
+        
+        <!--night owl  -->
+        <div class="left"><p>Night Owl</p></div>
+        <!-- work on it together -->
+        <div class="right"><p>Work on it together</p></div>
+        <div>
+          <br />
+          <!-- slider -->
+          <input type="range" class="slider" id="work" name="work" value="50" />
+          <br />
+        </div>
+        <!-- go off alone and think -->
+        <div class="left"><p>Go off alone and think</p></div>
+        <!--Tell me the backstory  -->
+        <div class="right"><p>Tell me the backstory</p></div>
+        <div>
+          <br />
+          <input type="range" class="slider" id="tell" name="tell" value="50" />
+          <br />
+        </div>
+        <!--Cut to the chase  -->
+        <div class="left"><p>Cut to the chase</p></div>
+        <!-- Need to talk it out -->
+        <div class="right"><p>Need to talk it out</p></div>
+        <div>
+          <br />
+          <input type="range" class="slider" id="need" name="need" value="50" />
+          <br />
+        </div>
+        <!-- Need to move on -->
+        <div class="left"><p>Need to move on</p></div>
+        <!-- Verbal processor -->
+        <div class="right"><p>Verbal processor</p></div>
+        <div>
+          <br />
+          <input
+            type="range"
+            class="slider"
+            id="verbal"
+            name="verbal"
+            value="50"
+          />
+          <br />
+        </div>
+        <!-- Mental processor -->
+        <div class="left"><p>Mental processor</p></div>
+        <!--Schedule a time to chat  -->
+        <div class="right"><p>Ringe på Zoom</p></div>
+        <div>
+          <br />
+          <input
+            type="range"
+            class="slider"
+            id="schedule"
+            name="schedule"
+            value="50"
+          />
+          <br />
+        </div>
+        <!-- Interrupt me when you need me -->
+        <div class="left"><p>Interrupt me when you need me</p></div>
+        <!-- Video chat -->
+        <div class="right"><p>Video chat</p></div>
+        <div>
+          <br />
+          <input
+            type="range"
+            class="slider"
+            id="video"
+            name="video"
+            value="50"
+          />
+          <br />
+        </div>
+        <!-- Slack/Text -->
+        <div class="left"><p>Slack/Text</p></div>
+        <!-- 09-17 Hours -->
+        <div class="right"><p>09-17 Hours</p></div>
+        <div>
+          <br />
+          <input
+            type="range"
+            class="slider"
+            id="hours"
+            name="hours"
+            value="50"
+          />
+          <br />
+        </div>
+        <!-- I have no set schedule -->
+        <div class="left"><p>Bare si hva jeg skal gjøre</p></div>
+        <div>
+      
+      <br>
+<br>
+
+      <button type="submit">Save</button>
+      <br>
+      <br>
+      <br>
+      <br>
+    </form>
+
+  </body>
+  
 </html>
