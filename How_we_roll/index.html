@@ -168,10 +168,14 @@
         font-family: 'Times New Roman', Times, serif;
         border-radius: 5px;
         margin-bottom: 100px;
-        cursor: pointer;
-       
-
-       
+        cursor: pointer;      
+      }
+      .results{
+        position: absolute;
+        left: 100px;
+        right: 100px;
+        text-align: center;
+        padding-left: 60px;
       }
     </style>
   </head>
@@ -198,8 +202,7 @@
       habits
     </h3>
     <br />
-    <form action="https://bacit.info" method="post">
-      <input type="hidden" name="id" value="" />
+    <form>
       <p>
         <label class="navn" for="navn">Name </label>
         <input type="text" name="navn" id="navn" value="" />
@@ -330,7 +333,42 @@
       <br>
       <br>
     </form>
+    <div class="results">
+      <h2>Form Data</h2>
+      <pre></pre>
+    </div>
+    <br>
+      <br>
+      <br>
+      <br>
+    <script>
+      
+      async function postData(url = "", data = {}) {
+        
+        const response = await fetch(url, {
+          method: "POST",          
+          headers: {
+            "Content-Type": "application/json",           
+          },
+          body: JSON.stringify(data),
+        });
+        return response.json();
+      }
 
+      function handleSubmit(event) {
+        event.preventDefault();
+        const data = new FormData(event.target);
+        const formJSON = Object.fromEntries(data.entries());
+        const results = document.querySelector(".results pre");
+        postData("https://bacit.info/", formJSON).then((data) => {
+          results.innerText = JSON.stringify(data, null, 2);
+        });
+      }
+      const form = document.querySelector("form");
+      form.addEventListener("submit", handleSubmit);
+    </script>
+
+    <br />
   </body>
   
 </html>
