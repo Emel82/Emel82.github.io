@@ -181,15 +181,15 @@
   </head>
   <body>
     <header>
-      <h1>IS-114 How we roll</h1>
+      <h1>IS-114 How we roll - Web Form</h1>
       <p>
         Gruppe 10B: Gøran Kvitne, Simen Chan Amundsen, Victoria Wold, Bjørnar
         Hatling Skåden, Emel Yilmaz
       </p>
       <div>
         <nav>
-          <a href="/How_we_roll/report.html">See Report</a>
-          <a href="/How_we_roll/Hwr-10B.pdf">Download Readme</a>
+          <a href="/How_we_roll/report.html">Web Report</a>
+          <a href="/README.md">Readme</a>
         </nav>
       </div>
     </header>
@@ -225,8 +225,8 @@
           <input
             type="range"
             class="slider"
-            id="early"
-            name="early"
+            id="question1"
+            name="question1"
             value="50"
           />
           <br>
@@ -239,7 +239,7 @@
         <div>
           <br />
           <!-- slider -->
-          <input type="range" class="slider" id="work" name="work" value="50" />
+          <input type="range" class="slider" id="question2" name="question2" value="50" />
           <br />
         </div>
         <!-- go off alone and think -->
@@ -248,7 +248,7 @@
         <div class="right"><p>Tell me the backstory</p></div>
         <div>
           <br />
-          <input type="range" class="slider" id="tell" name="tell" value="50" />
+          <input type="range" class="slider" id="question3" name="question3" value="50" />
           <br />
         </div>
         <!--Cut to the chase  -->
@@ -257,7 +257,7 @@
         <div class="right"><p>Need to talk it out</p></div>
         <div>
           <br />
-          <input type="range" class="slider" id="need" name="need" value="50" />
+          <input type="range" class="slider" id="question4" name="question4" value="50" />
           <br />
         </div>
         <!-- Need to move on -->
@@ -269,8 +269,8 @@
           <input
             type="range"
             class="slider"
-            id="verbal"
-            name="verbal"
+            id="question5"
+            name="question5"
             value="50"
           />
           <br />
@@ -278,14 +278,14 @@
         <!-- Mental processor -->
         <div class="left"><p>Mental processor</p></div>
         <!--Schedule a time to chat  -->
-        <div class="right"><p>Ringe på Zoom</p></div>
+        <div class="right"><p>Schedule a time to chat</p></div>
         <div>
           <br />
           <input
             type="range"
             class="slider"
-            id="schedule"
-            name="schedule"
+            id="question6"
+            name="question6"
             value="50"
           />
           <br />
@@ -299,8 +299,8 @@
           <input
             type="range"
             class="slider"
-            id="video"
-            name="video"
+            id="question7"
+            name="question7"
             value="50"
           />
           <br />
@@ -314,14 +314,53 @@
           <input
             type="range"
             class="slider"
-            id="hours"
-            name="hours"
+            id="question8"
+            name="question8"
             value="50"
           />
           <br />
         </div>
         <!-- I have no set schedule -->
-        <div class="left"><p>Bare si hva jeg skal gjøre</p></div>
+        <div class="left"><p>I have no set schedule</p></div>
+         <div class="right"><p>.....................</p></div>
+         <div>
+           <br />
+           <input
+             type="range"
+             class="slider"
+             id="question9"
+             name="question9"
+             value="50"
+           />
+           <br />
+         </div>
+         <div class="left"><p>.....................</p></div>
+        <div class="right"><p>....................</p></div>
+        <div>
+          <br />
+          <input
+            type="range"
+            class="slider"
+            id="question10"
+            name="question10"
+            value="50"
+          />
+          <br />
+        </div>
+        <div class="left"><p>......................</p></div>
+         <div class="right"><p>.......................</p></div>
+         <div>
+           <br />
+           <input
+             type="range"
+             class="slider"
+             id="question11"
+             name="question11"
+             value="50"
+           />
+           <br />
+         </div>
+         <div class="left"><p>....................</p></div>
         <div>
       
       <br>
@@ -334,7 +373,7 @@
       <br>
     </form>
     <div class="results">
-      <h2>Form Data</h2>
+      <h2>Data received from the form</h2>
       <pre></pre>
     </div>
     <br>
