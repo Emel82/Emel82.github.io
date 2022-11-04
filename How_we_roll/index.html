@@ -1,3 +1,5 @@
+<!-- Kilde:
+https://cssgradient.io/gradient-backgrounds/ -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>How we roll</title>
+    
     <style>
       * {
         margin-top: 0;
@@ -18,7 +21,7 @@
       }
 
       body {
-        background-color: lightgray;
+        background-color: rgb(238, 236, 236);
         margin: 0;
         flex-direction: column;
         position: relative;
@@ -31,7 +34,10 @@
       header {
         height: 100%;
         width: 100%;
-        background: rgb(65, 78, 107);
+        background: #4b6cb7;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #182848, #4b6cb7);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #182848, #4b6cb7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
         color: white;
         padding: 10px;
         margin-bottom: 0;
@@ -95,7 +101,7 @@
         font-size: 20px;
       }
       .slider {
-        background:lightgray;
+        background:rgb(238, 236, 236);
         width: 100%;
         appearance: none;
         align-items: center;
@@ -121,7 +127,9 @@
         height: 12px;
         cursor: pointer;
         box-shadow: rgb(0, 0, 0);
-        background: rgb(65, 78, 107);
+        background: #4b6cb7;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #182848, #4b6cb7);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #182848, #4b6cb7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         border-radius: 5px;
         border: slateblue;
       }
@@ -142,7 +150,7 @@
 
       .container > div {
         font-size: 20px;
-        background-color: lightgray;
+        background-color:rgb(238, 236, 236);
         
         /* border: 1px solid black; */
       }
