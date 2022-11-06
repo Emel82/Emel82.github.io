@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Report</title>
+    <title>How we roll</title>
     <style>
-      * {
+      /* * {
         margin-top: 0;
         margin-left: 0;
         margin-right: 0;
         padding: 0;
-      }
+      } */
       * {
         font-family: "Times New Roman", Times, serif;
       }
@@ -42,7 +42,7 @@
           #4b6cb7
         ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         color: white;
-        padding: 10px;
+        padding: 3px;
         margin-bottom: 0;
         text-align: center;
       }
@@ -101,13 +101,12 @@
   <body>
     <header>
       <h1>IS-114 How we roll - Web Report</h1>
-      <p>
-        Gruppe 10B: Gøran Kvitne, Simen Chan Amundsen, Victoria Wold, Bjørnar
-        Hatling Skåden, Emel Yilmaz
-      </p>
+
       <div>
         <nav>
-          <a href="/How_we_roll/index.html">Web Form</a>
+          <a href="/How_we_roll/index.html">Home</a>
+          <a href="/How_we_roll/form.html">Web Form</a>
+          <a href="/How_we_roll/user_stories.html">User Stories</a>
           <a href="/README.md">Readme</a>
         </nav>
       </div>
@@ -118,7 +117,13 @@
     <div class="container">
       <div></div>
       <div>
-        <canvas id="report" class="canvas" width="1000" height="700"></canvas>
+        <canvas
+          id="report"
+          class="canvas"
+          width="1000"
+          height="700"
+          style="border: 5px double rgb(14, 65, 108)"
+        ></canvas>
       </div>
       <div></div>
     </div>
