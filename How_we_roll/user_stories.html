@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How we roll</title>
+    <style>
+      * {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0;
+      }
+      * {
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      body {
+        background-color: rgb(238, 236, 236);
+        margin: 0;
+        flex-direction: column;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        min-height: 50vh;
+        text-align: center;
+        color: black;
+      }
+      header {
+        height: 100%;
+        width: 100%;
+        background: #4b6cb7; /* fallback for old browsers */
+        background: -webkit-linear-gradient(
+          to right,
+          #182848,
+          #4b6cb7
+        ); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(
+          to right,
+          #182848,
+          #4b6cb7
+        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        color: white;
+        padding: 3px;
+        margin-bottom: 0;
+        text-align: center;
+      }
+      header p {
+        font-size: 20px;
+      }
+      nav {
+        max-width: 800px;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        flex-grow: 1;
+        text-align: center;
+        padding: 1em;
+        position: relative;
+      }
+      nav a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        transform: scaleX(0);
+        background: lightgray;
+        transition: 0.7s transform cubic-bezier(0.06, 0.9, 0.28, 1);
+      }
+
+      nav a:hover::after {
+        transform: scaleX(1);
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+        font-size: 20px;
+      }
+      .rapport {
+        background-color: rgba(255, 255, 255);
+        border-radius: 10px;
+        margin: 40px 40px 40px 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>IS-114 How we roll - User Stories</h1>
+
+      <div>
+        <nav>
+          <a href="/How_we_roll/index.html">Home</a>
+          <a href="/How_we_roll/form.html">Web Form</a>
+          <a href="/How_we_roll/report.html">Web Report</a>
+          <a href="/README.md">Readme</a>
+        </nav>
+      </div>
+    </header>
+    <br />
+    <br />
+    <canvas
+      class="rapport"
+      id="emel"
+      width="520"
+      height="850"
+      style="border: 5px double purple"
+    >
+    </canvas>
+
+    <canvas
+      class="rapport"
+      id="victoria"
+      width="520"
+      height="850"
+      style="border: 5px double green"
+    >
+    </canvas>
+
+    <canvas
+      class="rapport"
+      id="bjørnar"
+      width="520"
+      height="850"
+      style="border: 5px double blue"
+    >
+    </canvas>
+
+    <canvas
+      class="rapport"
+      id="gøran"
+      width="520"
+      height="850"
+      style="border: 5px double red"
+    >
+    </canvas>
+
+    <canvas
+      class="rapport"
+      id="simen"
+      width="520"
+      height="850"
+      style="border: 5px double darkgoldenrod"
+    >
+    </canvas>
+    <script>
+      fetch(
+        "https://bacit.info/hwr/20221014113549-a4ff02fafd5371351c2f60e07445bb15.json"
+      )
+        .then(function (resp) {
+          return resp.json();
+        })
+        .then(function (test) {
+          console.log(test);
+
+          var canvas = document.getElementById("emel");
+          var context = canvas.getContext("2d");
+
+          context.font = "17px sans-serif";
+          context.fillStyle = "purple";
+          context.fillText(test.navn, 180, 40);
+          context.fillText(test.enavn, 230, 40);
+          context.fillStyle = "black";
+          context.fillText(
+            "1) Do you like to work early in the morning or late at night?",
+            10,
+            80
+          );
+          context.fillText("Early Bird", 75, 110);
+          context.fillText("Night Owl", 340, 110);
+          context.fillText(
+            "2) Do you like working with a group or alone?",
+            10,
+            150
+          );
+          context.fillText("Work together", 45, 180);
+          context.fillText("Work alone", 340, 180);
+          context.fillText(
+            "3) Do you like to tell the backstory or cut to the chase?",
+            10,
+            220
+          );
+          context.fillText("Tell the backstory", 20, 250);
+          context.fillText("Cut to the chase", 340, 250);
+          context.fillText(
+            "4) Do you think it is necessary to talk about the topic or continue?",
+            10,
+            290
+          );
+          context.fillText("Need to talk", 60, 320);
+          context.fillText("Need to move on", 340, 320);
+          context.fillText(
+            "5) Are you a verbal processor or a mental processor?",
+            10,
+            360
+          );
+          context.fillText("Verbal processor", 25, 390);
+          context.fillText("Mental processor", 340, 390);
+          context.fillText(
+            "6)Do you need schedule to chat or can you break up when needed",
+            10,
+            430
+          );
+          context.fillText("Schedule a time", 30, 460);
+          context.fillText("Interrupt when needed", 340, 460);
+          context.fillText(
+            "7) Do you prefer video chat or slack/text?",
+            10,
+            500
+          );
+          context.fillText("Video chat", 70, 530);
+          context.fillText("Slack/Text", 340, 530);
+          context.fillText(
+            "8) Do you have a set schedule between 09-17?",
+            10,
+            570
+          );
+          context.fillText("09-17 Hours", 60, 600);
+          context.fillText("No set schedule", 340, 600);
+          context.fillText(
+            "9) Do you like working with Kanban or Scrum?",
+            10,
+            640
+          );
+          context.fillText("Kanban", 95, 670);
+          context.fillText("Scrum", 340, 670);
+          context.fillText(
+            "10)Do you prefer to work in noisy environments or slience?",
+            10,
+            710
+          );
+          context.fillText("Noise", 110, 740);
+          context.fillText("Silence", 340, 740);
+          context.fillText(
+            "11)Do you prefer to lead or be a follower?",
+            10,
+            780
+          );
+          context.fillText("Leader", 100, 810);
+          context.fillText("Follower", 340, 810);
+
+          context.beginPath();
+          context.moveTo(160, 110);
+          context.lineTo(330, 110);
+
+          context.moveTo(160, 180);
+          context.lineTo(330, 180);
+
+          context.moveTo(160, 250);
+          context.lineTo(330, 250);
+
+          context.moveTo(160, 320);
+          context.lineTo(330, 320);
+
+          context.moveTo(160, 390);
+          context.lineTo(330, 390);
+
+          context.moveTo(160, 460);
+          context.lineTo(330, 460);
+
+          context.moveTo(160, 530);
+          context.lineTo(330, 530);
+
+          context.moveTo(160, 600);
+          context.lineTo(330, 600);
+
+          context.moveTo(160, 670);
+          context.lineTo(330, 670);
+
+          context.moveTo(160, 740);
+          context.lineTo(330, 740);
+
+          context.moveTo(160, 810);
+          context.lineTo(330, 810);
+          context.stroke();
+
+          var X = 160 + 1.7 * parseInt(test.question1, 10);
+          var Y = 110;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "purple";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question2, 10);
+          var Y = 180;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "purple";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question3, 10);
+          var Y = 250;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "purple";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question4, 10);
+          var Y = 320;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "purple";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question5, 10);
+          var Y = 390;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "purple";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question6, 10);
+          var Y = 460;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "purple";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question7, 10);
+          var Y = 530;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "purple";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question8, 10);
+          var Y = 600;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "purple";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question9, 10);
+          var Y = 670;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "purple";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question10, 10);
+          var Y = 740;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "purple";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question10, 10);
+          var Y = 810;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "purple";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+        });
+
+      fetch(
+        "https://bacit.info/hwr/20221017113628-7db06b553d0345abcb4b9c6b87beffac.json"
+      )
+        .then(function (resp) {
+          return resp.json();
+        })
+        .then(function (test) {
+          console.log(test);
+
+          var canvas = document.getElementById("victoria");
+          var context = canvas.getContext("2d");
+
+          context.font = "17px sans-serif";
+          context.fillStyle = "green";
+          context.fillText(test.navn, 180, 40);
+          context.fillText(test.enavn, 250, 40);
+          context.fillStyle = "black";
+          context.fillText(
+            "1) Do you like to work early in the morning or late at night?",
+            10,
+            80
+          );
+          context.fillText("Early Bird", 75, 110);
+          context.fillText("Night Owl", 340, 110);
+          context.fillText(
+            "2) Do you like working with a group or alone?",
+            10,
+            150
+          );
+          context.fillText("Work together", 45, 180);
+          context.fillText("Work alone", 340, 180);
+          context.fillText(
+            "3) Do you like to tell the backstory or cut to the chase?",
+            10,
+            220
+          );
+          context.fillText("Tell the backstory", 20, 250);
+          context.fillText("Cut to the chase", 340, 250);
+          context.fillText(
+            "4) Do you think it is necessary to talk about the topic or continue?",
+            10,
+            290
+          );
+          context.fillText("Need to talk", 60, 320);
+          context.fillText("Need to move on", 340, 320);
+          context.fillText(
+            "5) Are you a verbal processor or a mental processor?",
+            10,
+            360
+          );
+          context.fillText("Verbal processor", 25, 390);
+          context.fillText("Mental processor", 340, 390);
+          context.fillText(
+            "6)Do you need schedule to chat or can you break up when needed",
+            10,
+            430
+          );
+          context.fillText("Schedule a time", 30, 460);
+          context.fillText("Interrupt when needed", 340, 460);
+          context.fillText(
+            "7) Do you prefer video chat or slack/text?",
+            10,
+            500
+          );
+          context.fillText("Video chat", 70, 530);
+          context.fillText("Slack/Text", 340, 530);
+          context.fillText(
+            "8) Do you have a set schedule between 09-17?",
+            10,
+            570
+          );
+          context.fillText("09-17 Hours", 60, 600);
+          context.fillText("No set schedule", 340, 600);
+          context.fillText(
+            "9) Do you like working with Kanban or Scrum?",
+            10,
+            640
+          );
+          context.fillText("Kanban", 95, 670);
+          context.fillText("Scrum", 340, 670);
+          context.fillText(
+            "10)Do you prefer to work in noisy environments or slience?",
+            10,
+            710
+          );
+          context.fillText("Noise", 110, 740);
+          context.fillText("Silence", 340, 740);
+          context.fillText(
+            "11)Do you prefer to lead or be a follower?",
+            10,
+            780
+          );
+          context.fillText("Leader", 100, 810);
+          context.fillText("Follower", 340, 810);
+
+          context.beginPath();
+          context.moveTo(160, 110);
+          context.lineTo(330, 110);
+
+          context.moveTo(160, 180);
+          context.lineTo(330, 180);
+
+          context.moveTo(160, 250);
+          context.lineTo(330, 250);
+
+          context.moveTo(160, 320);
+          context.lineTo(330, 320);
+
+          context.moveTo(160, 390);
+          context.lineTo(330, 390);
+
+          context.moveTo(160, 460);
+          context.lineTo(330, 460);
+
+          context.moveTo(160, 530);
+          context.lineTo(330, 530);
+
+          context.moveTo(160, 600);
+          context.lineTo(330, 600);
+
+          context.moveTo(160, 670);
+          context.lineTo(330, 670);
+
+          context.moveTo(160, 740);
+          context.lineTo(330, 740);
+
+          context.moveTo(160, 810);
+          context.lineTo(330, 810);
+          context.stroke();
+
+          var X = 160 + 1.7 * parseInt(test.question1, 10);
+          var Y = 110;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "green";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question2, 10);
+          var Y = 180;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "green";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question3, 10);
+          var Y = 250;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "green";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question4, 10);
+          var Y = 320;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "green";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question5, 10);
+          var Y = 390;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "green";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question6, 10);
+          var Y = 460;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "green";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question7, 10);
+          var Y = 530;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "green";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question8, 10);
+          var Y = 600;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "green";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question9, 10);
+          var Y = 670;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "green";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question10, 10);
+          var Y = 740;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "green";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question11, 10);
+          var Y = 810;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "green";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+        });
+
+      fetch(
+        "https://bacit.info/hwr/20221017141958-d572354b268d8e4be5df9fa98b722163.json"
+      )
+        .then(function (resp) {
+          return resp.json();
+        })
+        .then(function (test) {
+          console.log(test);
+
+          var canvas = document.getElementById("bjørnar");
+          var context = canvas.getContext("2d");
+
+          context.font = "17px sans-serif";
+          context.fillStyle = "blue";
+          context.fillText(test.navn, 180, 40);
+          context.fillText(test.enavn, 250, 40);
+          context.fillStyle = "black";
+          context.fillText(
+            "1) Do you like to work early in the morning or late at night?",
+            10,
+            80
+          );
+          context.fillText("Early Bird", 75, 110);
+          context.fillText("Night Owl", 340, 110);
+          context.fillText(
+            "2) Do you like working with a group or alone?",
+            10,
+            150
+          );
+          context.fillText("Work together", 45, 180);
+          context.fillText("Work alone", 340, 180);
+          context.fillText(
+            "3) Do you like to tell the backstory or cut to the chase?",
+            10,
+            220
+          );
+          context.fillText("Tell the backstory", 20, 250);
+          context.fillText("Cut to the chase", 340, 250);
+          context.fillText(
+            "4) Do you think it is necessary to talk about the topic or continue?",
+            10,
+            290
+          );
+          context.fillText("Need to talk", 60, 320);
+          context.fillText("Need to move on", 340, 320);
+          context.fillText(
+            "5) Are you a verbal processor or a mental processor?",
+            10,
+            360
+          );
+          context.fillText("Verbal processor", 25, 390);
+          context.fillText("Mental processor", 340, 390);
+          context.fillText(
+            "6)Do you need schedule to chat or can you break up when needed",
+            10,
+            430
+          );
+          context.fillText("Schedule a time", 30, 460);
+          context.fillText("Interrupt when needed", 340, 460);
+          context.fillText(
+            "7) Do you prefer video chat or slack/text?",
+            10,
+            500
+          );
+          context.fillText("Video chat", 70, 530);
+          context.fillText("Slack/Text", 340, 530);
+          context.fillText(
+            "8) Do you have a set schedule between 09-17?",
+            10,
+            570
+          );
+          context.fillText("09-17 Hours", 60, 600);
+          context.fillText("No set schedule", 340, 600);
+          context.fillText(
+            "9) Do you like working with Kanban or Scrum?",
+            10,
+            640
+          );
+          context.fillText("Kanban", 95, 670);
+          context.fillText("Scrum", 340, 670);
+          context.fillText(
+            "10)Do you prefer to work in noisy environments or slience?",
+            10,
+            710
+          );
+          context.fillText("Noise", 110, 740);
+          context.fillText("Silence", 340, 740);
+          context.fillText(
+            "11)Do you prefer to lead or be a follower?",
+            10,
+            780
+          );
+          context.fillText("Leader", 100, 810);
+          context.fillText("Follower", 340, 810);
+
+          context.beginPath();
+          context.moveTo(160, 110);
+          context.lineTo(330, 110);
+
+          context.moveTo(160, 180);
+          context.lineTo(330, 180);
+
+          context.moveTo(160, 250);
+          context.lineTo(330, 250);
+
+          context.moveTo(160, 320);
+          context.lineTo(330, 320);
+
+          context.moveTo(160, 390);
+          context.lineTo(330, 390);
+
+          context.moveTo(160, 460);
+          context.lineTo(330, 460);
+
+          context.moveTo(160, 530);
+          context.lineTo(330, 530);
+
+          context.moveTo(160, 600);
+          context.lineTo(330, 600);
+
+          context.moveTo(160, 670);
+          context.lineTo(330, 670);
+
+          context.moveTo(160, 740);
+          context.lineTo(330, 740);
+
+          context.moveTo(160, 810);
+          context.lineTo(330, 810);
+          context.stroke();
+
+          var X = 160 + 1.7 * parseInt(test.question1, 10);
+          var Y = 110;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "blue";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question2, 10);
+          var Y = 180;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "blue";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question3, 10);
+          var Y = 250;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "blue";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question4, 10);
+          var Y = 320;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "blue";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question5, 10);
+          var Y = 390;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "blue";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question6, 10);
+          var Y = 460;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "blue";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question7, 10);
+          var Y = 530;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "blue";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question8, 10);
+          var Y = 600;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "blue";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question9, 10);
+          var Y = 670;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "blue";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question10, 10);
+          var Y = 740;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "blue";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question11, 10);
+          var Y = 810;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "blue";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+        });
+
+      fetch(
+        "https://bacit.info/hwr/20221018093440-46c05a3fa3c3673205d2d64e903e77d1.json"
+      )
+        .then(function (resp) {
+          return resp.json();
+        })
+        .then(function (test) {
+          console.log(test);
+
+          var canvas = document.getElementById("gøran");
+          var context = canvas.getContext("2d");
+
+          context.font = "17px sans-serif";
+          context.fillStyle = "red";
+          context.fillText(test.navn, 180, 40);
+          context.fillText(test.enavn, 240, 40);
+          context.fillStyle = "black";
+          context.fillText(
+            "1) Do you like to work early in the morning or late at night?",
+            10,
+            80
+          );
+          context.fillText("Early Bird", 75, 110);
+          context.fillText("Night Owl", 340, 110);
+          context.fillText(
+            "2) Do you like working with a group or alone?",
+            10,
+            150
+          );
+          context.fillText("Work together", 45, 180);
+          context.fillText("Work alone", 340, 180);
+          context.fillText(
+            "3) Do you like to tell the backstory or cut to the chase?",
+            10,
+            220
+          );
+          context.fillText("Tell the backstory", 20, 250);
+          context.fillText("Cut to the chase", 340, 250);
+          context.fillText(
+            "4) Do you think it is necessary to talk about the topic or continue?",
+            10,
+            290
+          );
+          context.fillText("Need to talk", 60, 320);
+          context.fillText("Need to move on", 340, 320);
+          context.fillText(
+            "5) Are you a verbal processor or a mental processor?",
+            10,
+            360
+          );
+          context.fillText("Verbal processor", 25, 390);
+          context.fillText("Mental processor", 340, 390);
+          context.fillText(
+            "6)Do you need schedule to chat or can you break up when needed",
+            10,
+            430
+          );
+          context.fillText("Schedule a time", 30, 460);
+          context.fillText("Interrupt when needed", 340, 460);
+          context.fillText(
+            "7) Do you prefer video chat or slack/text?",
+            10,
+            500
+          );
+          context.fillText("Video chat", 70, 530);
+          context.fillText("Slack/Text", 340, 530);
+          context.fillText(
+            "8) Do you have a set schedule between 09-17?",
+            10,
+            570
+          );
+          context.fillText("09-17 Hours", 60, 600);
+          context.fillText("No set schedule", 340, 600);
+          context.fillText(
+            "9) Do you like working with Kanban or Scrum?",
+            10,
+            640
+          );
+          context.fillText("Kanban", 95, 670);
+          context.fillText("Scrum", 340, 670);
+          context.fillText(
+            "10)Do you prefer to work in noisy environments or slience?",
+            10,
+            710
+          );
+          context.fillText("Noise", 110, 740);
+          context.fillText("Silence", 340, 740);
+          context.fillText(
+            "11)Do you prefer to lead or be a follower?",
+            10,
+            780
+          );
+          context.fillText("Leader", 100, 810);
+          context.fillText("Follower", 340, 810);
+
+          context.beginPath();
+          context.moveTo(160, 110);
+          context.lineTo(330, 110);
+
+          context.moveTo(160, 180);
+          context.lineTo(330, 180);
+
+          context.moveTo(160, 250);
+          context.lineTo(330, 250);
+
+          context.moveTo(160, 320);
+          context.lineTo(330, 320);
+
+          context.moveTo(160, 390);
+          context.lineTo(330, 390);
+
+          context.moveTo(160, 460);
+          context.lineTo(330, 460);
+
+          context.moveTo(160, 530);
+          context.lineTo(330, 530);
+
+          context.moveTo(160, 600);
+          context.lineTo(330, 600);
+
+          context.moveTo(160, 670);
+          context.lineTo(330, 670);
+
+          context.moveTo(160, 740);
+          context.lineTo(330, 740);
+
+          context.moveTo(160, 810);
+          context.lineTo(330, 810);
+          context.stroke();
+
+          var X = 160 + 1.7 * parseInt(test.question1, 10);
+          var Y = 110;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "red";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question2, 10);
+          var Y = 180;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "red";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question3, 10);
+          var Y = 250;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "red";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question4, 10);
+          var Y = 320;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "red";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question5, 10);
+          var Y = 390;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "red";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question6, 10);
+          var Y = 460;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "red";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question7, 10);
+          var Y = 530;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "red";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question8, 10);
+          var Y = 600;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "red";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question9, 10);
+          var Y = 670;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "red";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question10, 10);
+          var Y = 740;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "red";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question11, 10);
+          var Y = 810;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "red";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+        });
+
+      fetch(
+        "https://bacit.info/hwr/20221017142032-e5779031fd782e9504c4e0b3625adde1.json"
+      )
+        .then(function (resp) {
+          return resp.json();
+        })
+        .then(function (test) {
+          console.log(test);
+
+          var canvas = document.getElementById("simen");
+          var context = canvas.getContext("2d");
+
+          context.font = "17px sans-serif";
+          context.fillStyle = "darkgoldenrod";
+          context.fillText(test.navn, 180, 40);
+          context.fillText(test.enavn, 240, 40);
+          context.fillStyle = "black";
+          context.fillText(
+            "1) Do you like to work early in the morning or late at night?",
+            10,
+            80
+          );
+          context.fillText("Early Bird", 75, 110);
+          context.fillText("Night Owl", 340, 110);
+          context.fillText(
+            "2) Do you like working with a group or alone?",
+            10,
+            150
+          );
+          context.fillText("Work together", 45, 180);
+          context.fillText("Work alone", 340, 180);
+          context.fillText(
+            "3) Do you like to tell the backstory or cut to the chase?",
+            10,
+            220
+          );
+          context.fillText("Tell the backstory", 20, 250);
+          context.fillText("Cut to the chase", 340, 250);
+          context.fillText(
+            "4) Do you think it is necessary to talk about the topic or continue?",
+            10,
+            290
+          );
+          context.fillText("Need to talk", 60, 320);
+          context.fillText("Need to move on", 340, 320);
+          context.fillText(
+            "5) Are you a verbal processor or a mental processor?",
+            10,
+            360
+          );
+          context.fillText("Verbal processor", 25, 390);
+          context.fillText("Mental processor", 340, 390);
+          context.fillText(
+            "6)Do you need schedule to chat or can you break up when needed",
+            10,
+            430
+          );
+          context.fillText("Schedule a time", 30, 460);
+          context.fillText("Interrupt when needed", 340, 460);
+          context.fillText(
+            "7) Do you prefer video chat or slack/text?",
+            10,
+            500
+          );
+          context.fillText("Video chat", 70, 530);
+          context.fillText("Slack/Text", 340, 530);
+          context.fillText(
+            "8) Do you have a set schedule between 09-17?",
+            10,
+            570
+          );
+          context.fillText("09-17 Hours", 60, 600);
+          context.fillText("No set schedule", 340, 600);
+          context.fillText(
+            "9) Do you like working with Kanban or Scrum?",
+            10,
+            640
+          );
+          context.fillText("Kanban", 95, 670);
+          context.fillText("Scrum", 340, 670);
+          context.fillText(
+            "10)Do you prefer to work in noisy environments or slience?",
+            10,
+            710
+          );
+          context.fillText("Noise", 110, 740);
+          context.fillText("Silence", 340, 740);
+          context.fillText(
+            "11)Do you prefer to lead or be a follower?",
+            10,
+            780
+          );
+          context.fillText("Leader", 100, 810);
+          context.fillText("Follower", 340, 810);
+
+          context.beginPath();
+          context.moveTo(160, 110);
+          context.lineTo(330, 110);
+
+          context.moveTo(160, 180);
+          context.lineTo(330, 180);
+
+          context.moveTo(160, 250);
+          context.lineTo(330, 250);
+
+          context.moveTo(160, 320);
+          context.lineTo(330, 320);
+
+          context.moveTo(160, 390);
+          context.lineTo(330, 390);
+
+          context.moveTo(160, 460);
+          context.lineTo(330, 460);
+
+          context.moveTo(160, 530);
+          context.lineTo(330, 530);
+
+          context.moveTo(160, 600);
+          context.lineTo(330, 600);
+
+          context.moveTo(160, 670);
+          context.lineTo(330, 670);
+
+          context.moveTo(160, 740);
+          context.lineTo(330, 740);
+
+          context.moveTo(160, 810);
+          context.lineTo(330, 810);
+          context.stroke();
+
+          var X = 160 + 1.7 * parseInt(test.question1, 10);
+          var Y = 110;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "darkgoldenrod";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question2, 10);
+          var Y = 180;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "darkgoldenrod";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question3, 10);
+          var Y = 250;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "darkgoldenrod";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question4, 10);
+          var Y = 320;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "darkgoldenrod";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question5, 10);
+          var Y = 390;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "darkgoldenrod";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question6, 10);
+          var Y = 460;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "darkgoldenrod";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question7, 10);
+          var Y = 530;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "darkgoldenrod";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question8, 10);
+          var Y = 600;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "darkgoldenrod";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question9, 10);
+          var Y = 670;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "darkgoldenrod";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question10, 10);
+          var Y = 740;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "darkgoldenrod";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+
+          var X = 160 + 1.7 * parseInt(test.question11, 10);
+          var Y = 810;
+          var R = 5;
+          context.beginPath();
+          context.arc(X, Y, R, 0, 2 * Math.PI, false);
+          context.fillStyle = "darkgoldenrod";
+          context.fill();
+          context.lineWidth = 2;
+          context.strokeStyle = "black";
+          context.stroke();
+          context.closePath();
+        });
+    </script>
+  </body>
+</html>
