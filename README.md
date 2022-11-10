@@ -11,6 +11,3 @@ User Stories
 9. Do you like working with Kanban or Scrum?
 10. Do you prefer to work in noisy environments or slience?
 11. Do you prefer to lead or be a follower?
-    .......
-
-Victoria Wold
